@@ -5,8 +5,8 @@ import {
   InvoiceForm,
   InvoicesTable,
   LatestInvoiceRaw,
-  User,
   Revenue,
+  User,
 } from './definitions';
 import { formatCurrency } from './utils';
 
@@ -68,6 +68,7 @@ export async function fetchCardData() {
       invoiceCountPromise,
       customerCountPromise,
       invoiceStatusPromise,
+      
     ]);
 
     const numberOfInvoices = Number(data[0].rows[0].count ?? '0');
