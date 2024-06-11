@@ -1,8 +1,9 @@
 import { fetchFilteredInvoices } from '@/app/lib/data';
 import { formatCurrency, formatDateToLocal } from '@/app/lib/utils';
-import { DeleteInvoice, UpdateInvoice } from '@/app/ui/dashboard/invoices/buttons';
-import InvoiceStatus from '@/app/ui/dashboard/invoices/status';
+
 import Image from 'next/image';
+import { DeleteInvoice, UpdateInvoice } from './buttons';
+import InvoiceStatus from './status';
 
 export default async function InvoicesTable({
   query,
@@ -31,7 +32,7 @@ export default async function InvoicesTable({
                         className="mr-2 rounded-full"
                         width={28}
                         height={28}
-                        alt={`${invoice.name}'s profile picture`}
+                        alt={`${invoice.name}'s profile picture`} // Delete this line
                       />
                       <p>{invoice.name}</p>
                     </div>

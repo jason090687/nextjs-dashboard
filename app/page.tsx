@@ -1,10 +1,14 @@
 import AcmeLogo from '@/app/ui/acme-logo';
-import { ArrowRightIcon } from '@heroicons/react/24/outline';
-import Link from 'next/link';
-import style from '@/app/ui/home.module.css';
 import { lusitana } from '@/app/ui/fonts';
+import style from '@/app/ui/home.module.css';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 
+export const metadata: Metadata = {
+  title: 'Dashboard',
+};
 
 
 export default function Page() {
@@ -40,13 +44,7 @@ export default function Page() {
             className="hidden md:block"
             alt="Screenshots of the dashboard project showing desktop version"
           />
-          <Image
-            src="/hero-mobile.png"
-            width={560}
-            height={620}
-            className="hidden md:block"
-            alt="Screenshots of the dashboard project showing desktop version"
-          />
+          
         </div>
       </div>
     </main>

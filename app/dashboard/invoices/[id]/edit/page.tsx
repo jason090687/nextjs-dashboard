@@ -1,17 +1,26 @@
+
 import { fetchCustomers, fetchInvoiceById } from '@/app/lib/data';
+
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import Breadcrumbs from '../../breadcrumbs';
-import Form from '../../create-form';
+import Form from '../../edit-form';
+
+export const metadata: Metadata = {
+  title: 'Edit',
+};
 
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id;
-
-  // Fetch data in parallel
   const [invoice, customers] = await Promise.all([
     fetchInvoiceById(id),
     fetchCustomers(),
   ]);
 
-  return (
+  if (!invoice) {
+    notFound();
+  }
+    
     <main>
       <Breadcrumbs
         breadcrumbs={[
@@ -25,5 +34,4 @@ export default async function Page({ params }: { params: { id: string } }) {
       />
       <Form invoice={invoice} customers={customers} />
     </main>
-  );
 }
